@@ -4,7 +4,7 @@
   "description": "🐊 React boilerplate for component build made by ANMEDIO",
   "main": "src/index.jsx",
   "scripts": {
-    "react:start": "cross-env NODE_ENV=development webpack-dev-server --open",
+    "react:start": "cross-env NODE_ENV=development webpack-dev-server",
     "react:build": "cross-env NODE_ENV=production webpack",
     "gulp:start": "cross-env NODE_ENV=development gulp",
     "gulp:build": "cross-env NODE_ENV=development gulp build",
@@ -30,7 +30,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-        "url": "git+https://github.com/anmedio/anmedio-react-component-template"
+    "url": "git+https://github.com/anmedio/anmedio-react-component-template"
   },
   "bugs": {
     "url": "https://github.com/anmedio/anmedio-react-component-template/issues"
