@@ -29,7 +29,7 @@
   right: 5px;
 
   // Media
-  @include grid-media($md-grid) {
+  @media screen and (min-width: $md-media) {
     top: 8px;
   }
 
@@ -37,7 +37,7 @@
     top: 6px;
 
     // Media
-    @include grid-media($md-grid) {
+    @media screen and (min-width: $md-media) {
       top: 9px;
     }
   }

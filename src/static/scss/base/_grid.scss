@@ -15,28 +15,3 @@ $xs-content: 100%;
 $md-content: 690px;
 $lg-content: 944px;
 $xl-content: 1265px;
-
-// Grid
-$xs-grid: (
-  columns: 4,
-  gutter: $xs-grid-gutter,
-  media: $xs-media,
-);
-
-$md-grid: (
-  columns: 12,
-  gutter: $md-grid-gutter,
-  media: $md-media,
-);
-
-$lg-grid: (
-  columns: 10,
-  gutter: $lg-grid-gutter,
-  media: $lg-media,
-);
-
-$xl-grid: (
-  columns: 12,
-  gutter: $xl-grid-gutter,
-  media: $xl-media,
-);

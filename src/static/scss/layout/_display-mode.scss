@@ -8,19 +8,19 @@
   }
 
   &--from-md {
-    @include grid-media($md-grid) {
+    @media screen and (min-width: $md-media) {
       display: none;
     }
   }
 
   &--from-lg {
-    @include grid-media($lg-grid) {
+    @media screen and (min-width: $lg-media) {
       display: none;
     }
   }
 
   &--from-xl {
-    @include grid-media($xl-grid) {
+    @media screen and (min-width: $xl-media) {
       display: none;
     }
   }
