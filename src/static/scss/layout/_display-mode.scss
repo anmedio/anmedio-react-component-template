@@ -1,0 +1,47 @@
+.hide {
+  display: none;
+
+  &--for-xs {
+    @media screen and (max-width: $md-media - 1) {
+      display: none;
+    }
+  }
+
+  &--from-md {
+    @include grid-media($md-grid) {
+      display: none;
+    }
+  }
+
+  &--from-lg {
+    @include grid-media($lg-grid) {
+      display: none;
+    }
+  }
+
+  &--from-xl {
+    @include grid-media($xl-grid) {
+      display: none;
+    }
+  }
+}
+
+.show {
+  &--from-md {
+    @media screen and (max-width: $md-media - 1) {
+      display: none;
+    }
+  }
+
+  &--from-lg {
+    @media screen and (max-width: $lg-media - 1) {
+      display: none;
+    }
+  }
+
+  &--from-xl {
+    @media screen and (max-width: $xl-media - 1) {
+      display: none;
+    }
+  }
+}
