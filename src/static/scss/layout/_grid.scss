@@ -4,22 +4,110 @@
   margin: 0 auto;
   position: relative;
 
-  // media
+  // Media
   @media screen and (min-width: $md-media) {
-    width: $md-content + $md-grid-gutter;
-    padding: 0 $md-grid-gutter/2;
+    width: $md-content;
+    padding: 0;
   }
 
   @media screen and (min-width: $lg-media) {
-    width: $lg-content + $lg-grid-gutter;
-    padding: 0 $lg-grid-gutter/2;
+    width: $lg-content;
   }
 
   @media screen and (min-width: $xl-media) {
-    width: $xl-content + $xl-grid-gutter;
-    padding: 0 $xl-grid-gutter/2;
+    width: $xl-content;
   }
 }
 
+@mixin row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  width: calc(100% + #{$xs-grid-gutter});
+  margin-right: -$xs-grid-gutter/2;
+  margin-left: -$xs-grid-gutter/2;
+
+  // Media
+  @media screen and (min-width: $md-media) {
+    width: calc(100% + #{$md-grid-gutter});
+    margin-right: -$md-grid-gutter/2;
+    margin-left: -$md-grid-gutter/2;
+  }
+
+  @media screen and (min-width: $lg-media) {
+    width: calc(100% + #{$lg-grid-gutter});
+    margin-right: -$lg-grid-gutter/2;
+    margin-left: -$lg-grid-gutter/2;
+  }
+
+  @media screen and (min-width: $xl-media) {
+    width: calc(100% + #{$xl-grid-gutter});
+    margin-right: -$xl-grid-gutter/2;
+    margin-left: -$xl-grid-gutter/2;
+  }
+}
+
+@mixin grid-xs($col, $cols) {
+  flex-shrink: 0;
+  flex-basis: calc((#{$col} / #{$cols}) * 100% - #{$xs-grid-gutter});
+  max-width: calc((#{$col} / #{$cols}) * 100% - #{$xs-grid-gutter});
+  -ms-flex-preferred-size: calc(
+    (#{$col} / #{$cols}) * 100% - #{$xs-grid-gutter}
+  );
+  margin-right: $xs-grid-gutter / 2;
+  margin-left: $xs-grid-gutter / 2;
+}
+
+@mixin grid-md($col, $cols) {
+  flex-shrink: 0;
+  flex-basis: calc((#{$col} / #{$cols}) * 100% - #{$md-grid-gutter});
+  max-width: calc((#{$col} / #{$cols}) * 100% - #{$md-grid-gutter});
+  -ms-flex-preferred-size: calc(
+    (#{$col} / #{$cols}) * 100% - #{$md-grid-gutter}
+  );
+  margin-right: $md-grid-gutter / 2;
+  margin-left: $md-grid-gutter / 2;
+}
+
+@mixin grid-lg($col, $cols) {
+  flex-shrink: 0;
+  flex-basis: calc((#{$col} / #{$cols}) * 100% - #{$lg-grid-gutter});
+  max-width: calc((#{$col} / #{$cols}) * 100% - #{$lg-grid-gutter});
+  -ms-flex-preferred-size: calc(
+    (#{$col} / #{$cols}) * 100% - #{$lg-grid-gutter}
+  );
+  margin-right: $lg-grid-gutter / 2;
+  margin-left: $lg-grid-gutter / 2;
+}
+
+@mixin grid-xl($col, $cols) {
+  flex-shrink: 0;
+  flex-basis: calc((#{$col} / #{$cols}) * 100% - #{$xl-grid-gutter});
+  max-width: calc((#{$col} / #{$cols}) * 100% - #{$xl-grid-gutter});
+  -ms-flex-preferred-size: calc(
+    (#{$col} / #{$cols}) * 100% - #{$xl-grid-gutter}
+  );
+  margin-right: $xl-grid-gutter / 2;
+  margin-left: $xl-grid-gutter / 2;
+}
+
 .row {
+  @include row;
+}
+
+.half {
+  @include grid-xs(1, 1);
+
+  // Media
+  @media screen and (min-width: $md-media) {
+    @include grid-md(1, 2);
+  }
+
+  @media screen and (min-width: $lg-media) {
+    @include grid-lg(1, 2);
+  }
+
+  @media screen and (min-width: $xl-media) {
+    @include grid-xl(1, 2);
+  }
 }
