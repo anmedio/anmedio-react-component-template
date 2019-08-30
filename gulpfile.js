@@ -28,7 +28,11 @@ lazyRequireTask('fonts', './gulptasks/fonts.gulptask.js', {
 });
 
 lazyRequireTask('images', './gulptasks/images.gulptask.js', {
-  src: 'src/static/img/**/*',
+  src: ['src/static/img/**/*', '!src/static/img/**/icons.svg'],
+});
+
+lazyRequireTask('svgSprite', './gulptasks/svgSprite.gulptask.js', {
+  src: 'src/static/img/**/icons.svg',
 });
 
 lazyRequireTask('assetsCss', './gulptasks/assetscss.gulptask.js', {
@@ -52,6 +56,11 @@ task('watch', () => {
   watch('src/static/scss/**/*.scss', { usePolling: true }, series('css'));
   watch('src/static/js/**/*.js', { usePolling: true }, series('js'));
   watch(
+    'src/static/img/**/*',
+    { usePolling: true },
+    parallel('images', 'svgSprite'),
+  );
+  watch(
     'src/static/assets/**/*',
     { usePolling: true },
     parallel('assetsCss', 'assetsJs'),
@@ -63,7 +72,11 @@ task(
   series(
     'clean',
     parallel('html', 'css', 'js'),
-    parallel('fonts', 'images', parallel('assetsCss', 'assetsJs')),
+    parallel(
+      'fonts',
+      parallel('images', 'svgSprite'),
+      parallel('assetsCss', 'assetsJs'),
+    ),
   ),
 );
 
@@ -72,7 +85,11 @@ task(
   series(
     'clean',
     parallel('html', 'css', 'js'),
-    parallel('fonts', 'images', parallel('assetsCss', 'assetsJs')),
+    parallel(
+      'fonts',
+      parallel('images', 'svgSprite'),
+      parallel('assetsCss', 'assetsJs'),
+    ),
     parallel('server', 'watch'),
   ),
 );

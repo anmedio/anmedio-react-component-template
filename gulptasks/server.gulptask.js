@@ -15,5 +15,5 @@ module.exports = () => () =>
     },
   });
 gulp
-  .watch('src/static/**/*.{pug,sass,scss,css,js}')
+  .watch(['src/static/**/*.{pug,sass,scss,css,js}', 'src/static/img/**/*'])
   .on('change', () => browserSync.reload());
