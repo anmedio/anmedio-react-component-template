@@ -1,6 +1,7 @@
 const $ = require('gulp-load-plugins')();
 const gulp = require('gulp');
 const combiner = require('stream-combiner2').obj;
+const browserSync = require('browser-sync');
 
 module.exports = options => () =>
   combiner(
@@ -11,4 +12,5 @@ module.exports = options => () =>
     }),
     gulp.dest('dist/static/js'),
     $.debug({ title: 'Write js to dest:' }),
+    browserSync.reload({ stream: true }),
   ).on('error', $.notify.onError('👻 <%= error.message %>'));

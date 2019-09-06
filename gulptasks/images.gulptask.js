@@ -5,6 +5,7 @@ const imgmin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 const mozjpeg = require('imagemin-mozjpeg');
 const svgo = require('imagemin-svgo');
+const browserSync = require('browser-sync');
 
 module.exports = options => () =>
   combiner(
@@ -15,4 +16,5 @@ module.exports = options => () =>
     }),
     gulp.dest('dist/static/img'),
     $.debug({ title: 'Write images to dest:' }),
+    browserSync.reload({ stream: true }),
   ).on('error', $.notify.onError('👻 <%= error.message %>'));

@@ -1,4 +1,3 @@
-const gulp = require('gulp');
 const browserSync = require('browser-sync');
 
 module.exports = () => () =>
@@ -14,6 +13,3 @@ module.exports = () => () =>
       scroll: false,
     },
   });
-gulp
-  .watch(['src/static/**/*.{pug,sass,scss,css,js}', 'src/static/img/**/*'])
-  .on('change', () => browserSync.reload());
